@@ -173,7 +173,7 @@ def main() -> int:
     for p in sorted(out.rglob("*")):
         if p.is_file() and p.name != "SHA256SUMS.txt":
             sums.append(f"{sha256(p)}  {p.relative_to(out).as_posix()}")
-    (out / "SHA256SUMS.txt").write_text("\n".join(sums) + "\n", encoding="utf-8")
+    (out / "SHA256SUMS.txt").write_text("\n".join(sums) + "\n", encoding="utf-8", newline="\n")
 
     # ---- 打包 zip ----
     with zipfile.ZipFile(zip_path, "w", zipfile.ZIP_DEFLATED, compresslevel=9) as z:
