@@ -1,0 +1,22 @@
+# 心灵终结 3.3.6 平衡性脚本 — 版本库忽略规则
+
+# 临时与中间产物
+_tmp/
+*.tmp
+*.bak
+*.orig
+
+# 部署备份快照（含游戏文件副本，不入库）
+backup/
+
+# Python
+__pycache__/
+*.py[cod]
+.pytest_cache/
+
+# 编辑器/系统
+.vscode/
+.idea/
+Thumbs.db
+desktop.ini
+.DS_Store
