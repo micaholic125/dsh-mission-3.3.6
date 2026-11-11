@@ -70,6 +70,19 @@
 - 不在未备份的情况下覆盖已有 `rulesmo.ini`；
 - 不擅自扩大改动范围（用户没点名的单位/武器一律不动）。
 
-## 七、当前状态
+## 七、多 Agent 协作约定
+
+本目录已设为 **AO Claude 多 Agent 协作区**（尚未启用）。启用后必须遵守：
+
+- **一个文件同一时刻只由一个 Agent 写**；不同 Agent 各写各的文件，不交叉。
+- 动手前先 `git status` 确认没有他人未提交的改动；写完立刻 commit。
+- commit message 前缀带 Agent 标识，便于追溯，如 `[lead]`、`[agent-b]`。
+- **共享事实的唯一出处**：`rulesmo_original.ini`（只读基准）、`单位名录.csv`、`单位名录_自检报告.md`。
+- 需求以 `需求.md` 为准；跨 Agent 传递信息写进 `需求.md` 或当日 `devlog`，不留口头约定。
+- **只读文件**：`rulesmo_original.ini`，任何 Agent 都不得修改。
+- **互斥资源**：`changes/*.json`、工作区 `rulesmo.ini`、`D:\Mental Omega\rulesmo.ini` —— 同一时刻只允许一个 Agent 操作。
+- 发现文件被别人改过：**先读当前内容再改**，禁止盲目覆盖。
+
+## 八、当前状态
 
 见 `devlog/` 最新一篇。
