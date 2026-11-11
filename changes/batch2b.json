@@ -1,0 +1,9 @@
+{
+  "batch": "batch2b-2026-11-11",
+  "note": "第二批补丁：黄金之风(协同技能)护甲增益弹头排除 MADMAN。经核查 GSpinGeneratorWH 已是宽范围（light/medium/heavy=-1%，显式排除全部空军/海军/陷阱），仅需补 madt 排除。",
+  "source": "docs/08-改动清单-第一批.md 第六章 + 用户 18:58 确认",
+  "changes": [
+    {"section": "GSpinGeneratorWH", "key": "Versus.madt", "value": "0%", "mode": "add",
+     "note": "排除 MADMAN（其装甲 madt 属 heavy 档，会被 Verses 带进来）；与加速旋塔速度增益保持一致"}
+  ]
+}

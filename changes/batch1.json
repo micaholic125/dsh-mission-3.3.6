@@ -44,7 +44,7 @@
 
     {"section": "KNIGHT", "key": "Cost", "value": 350, "note": "焚-1.1 铁骑兵 450→350"},
     {"section": "COVE", "key": "Sight", "value": 15, "note": "焚-1.2 长枪战士视野 9→15"},
-    {"section": "SpinbladeSpecial", "key": "RechargeTime", "value": 3.5, "note": "焚-1.3 加速旋塔冷却 4→3.5"},
+    {"section": "SpinbladeSpecial", "key": "RechargeTime", "value": 3, "note": "焚-1.3 加速旋塔冷却 4→3（用户 18:58 追加调整，原定 3.5）"},
     {"section": "FASPIN", "key": "Strength", "value": 300, "note": "焚-1.3 加速旋塔耐久 600→300"}
   ]
 }
