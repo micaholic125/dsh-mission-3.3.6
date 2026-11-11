@@ -1,0 +1,29 @@
+{
+  "batch": "batch2-2026-11-11",
+  "note": "第二批：需要新增键的 2 项。B1 冥卫优先打载具；B2 加速旋塔扩大受益范围。",
+  "source": "docs/08-改动清单-第一批.md 第六章",
+  "changes": [
+    {"section": "ChronoWarpWH", "key": "Versus.flak.PassiveAcquire", "value": "no", "mode": "add",
+     "note": "B1 冥卫：自动索敌跳过步兵(flak 装甲)，手动指定仍可攻击、伤害不变"},
+    {"section": "ChronoWarpWH", "key": "Versus.plate.PassiveAcquire", "value": "no", "mode": "add",
+     "note": "B1 冥卫：自动索敌跳过步兵(plate 装甲)"},
+
+    {"section": "SpinGeneratorWH", "key": "Verses", "value": "0%,0%,0%,100%,100%,100%,0%,0%,0%,0%,0%",
+     "note": "B2 加速旋塔：开启 light/medium/heavy 三档（覆盖绝大多数地面载具）"},
+    {"section": "SpinGeneratorWH", "key": "Versus.madt", "value": "0%", "mode": "add",
+     "note": "B2 排除 MADMAN（其装甲 madt 属 heavy，会被上面三档带进来）"},
+
+    {"section": "SpinGeneratorWH", "key": "Versus.n_sync", "value": "100%", "mode": "add", "note": "B2 纳米同步步兵"},
+    {"section": "SpinGeneratorWH", "key": "Versus.n_sync2", "value": "100%", "mode": "add", "note": "B2 纳米同步步兵"},
+    {"section": "SpinGeneratorWH", "key": "Versus.n_knight", "value": "100%", "mode": "add", "note": "B2 纳米同步步兵"},
+    {"section": "SpinGeneratorWH", "key": "Versus.n_cove", "value": "100%", "mode": "add", "note": "B2 纳米同步步兵"},
+    {"section": "SpinGeneratorWH", "key": "Versus.n_dupl", "value": "100%", "mode": "add", "note": "B2 纳米同步步兵"},
+    {"section": "SpinGeneratorWH", "key": "Versus.n_bane", "value": "100%", "mode": "add", "note": "B2 纳米同步步兵"},
+    {"section": "SpinGeneratorWH", "key": "Versus.n_plate", "value": "100%", "mode": "add", "note": "B2 纳米同步步兵"},
+    {"section": "SpinGeneratorWH", "key": "Versus.n_devi", "value": "100%", "mode": "add", "note": "B2 纳米同步步兵"},
+    {"section": "SpinGeneratorWH", "key": "Versus.n_huntr", "value": "100%", "mode": "add", "note": "B2 纳米同步步兵"},
+    {"section": "SpinGeneratorWH", "key": "Versus.h_knight", "value": "100%", "mode": "add", "note": "B2 纳米同步英雄"},
+    {"section": "SpinGeneratorWH", "key": "Versus.h_cove", "value": "100%", "mode": "add", "note": "B2 纳米同步英雄"},
+    {"section": "SpinGeneratorWH", "key": "Versus.h_clair", "value": "100%", "mode": "add", "note": "B2 纳米同步英雄"}
+  ]
+}

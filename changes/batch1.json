@@ -1,0 +1,50 @@
+{
+  "batch": "batch1-2026-11-11",
+  "note": "第一批：公告中已确认的纯数值修改，37 项。不新增任何键。",
+  "source": "docs/08-改动清单-第一批.md",
+  "changes": [
+    {"section": "General", "key": "LightningStormDuration", "value": 250, "note": "盟-1 闪电风暴持续时间 210→250"},
+
+    {"section": "THOR", "key": "Cost", "value": 1500, "note": "EU-1.1 雷神炮艇 2000→1500"},
+    {"section": "ThorHTLWH", "key": "AttachEffect.ArmorMultiplier", "value": 1.9, "note": "EU-1.1 部署防御 +90%"},
+    {"section": "ThorHTLWH", "key": "AttachEffect.SpeedMultiplier", "value": 0.2, "note": "EU-1.1 部署移速 -80%"},
+    {"section": "SREF", "key": "Cost", "value": 1050, "note": "EU-1.2 光棱坦克 1450→1050"},
+    {"section": "GASTAS", "key": "BuildLimit", "value": 3, "note": "EU-2.3 火控穹顶限造 1→3"},
+    {"section": "GASTAS", "key": "Strength", "value": 3000, "note": "EU-2.3 火控穹顶血量 1800→3000"},
+    {"section": "GASTAS", "key": "BaseNormal", "value": "yes", "note": "EU-2.3 火控穹顶可延伸建筑（需实测）"},
+    {"section": "DefenseBuffWH", "key": "AttachEffect.FirepowerMultiplier", "value": 2, "note": "EU-2.3 攻击加成 1.5→2"},
+    {"section": "PaladinAidSpecial", "key": "Deliver.Types", "value": "PANTHER,PANTHER,PANTHER,PANTHER,PANTHER,PANTHER", "note": "EU-2.4 圣骑士空投 2→6"},
+    {"section": "AWP", "key": "ROF", "value": 120, "note": "EU-2.5 狙击手常规 180→120"},
+    {"section": "AWP2", "key": "ROF", "value": 90, "note": "EU-2.5 狙击手部署 150→90"},
+    {"section": "AWPE", "key": "ROF", "value": 120, "note": "EU-2.5 狙击手精英常规 180→120"},
+    {"section": "AWP2E", "key": "ROF", "value": 90, "note": "EU-2.5 狙击手精英部署 150→90"},
+    {"section": "CRAWP", "key": "ROF", "value": 90, "note": "EU-2.5 狙击手多功能车 120→90"},
+    {"section": "CHRTNK", "key": "Cost", "value": 1450, "note": "EU-2.6 冥卫坦克 1700→1450"},
+    {"section": "GAPOST", "key": "BuildLimit", "value": 5, "note": "EU-3.7 传送节点限造 3→5"},
+    {"section": "ChronoliftSpecial", "key": "RechargeTime", "value": 0.1667, "note": "EU-3.8 超时空起重机 1min→10s"},
+
+    {"section": "NuclearPathSpecial", "key": "RechargeTime", "value": 6.5, "note": "CN-1.1 核能奔涌 CD 7→6.5"},
+    {"section": "EMPR", "key": "Cost", "value": 1800, "note": "CN-1.2 女娲加农炮 2000→1800"},
+    {"section": "UraniumCannon", "key": "Range", "value": 9.5, "note": "CN-1.2 女娲射程 8.5→9.5"},
+    {"section": "UraniumCannonE", "key": "Range", "value": 9.5, "note": "CN-1.2 女娲精英射程 8.5→9.5"},
+
+    {"section": "WOLF", "key": "Speed", "value": 22, "note": "RU-1.1 猎狼犬速度 20→22"},
+    {"section": "WOLF", "key": "JumpjetSpeed", "value": 22, "note": "RU-1.1 猎狼犬飞行速度 20→22"},
+
+    {"section": "IrradiateWH", "key": "AttachEffect.Duration", "value": 650, "note": "苏-1 放射装甲γ 540→650"},
+    {"section": "IrradiateBetaWH", "key": "AttachEffect.Duration", "value": 550, "note": "苏-1 放射装甲β 450→550"},
+
+    {"section": "NACLON", "key": "ProduceCashAmount", "value": 10, "note": "厄-1.1 克隆缸产出 20→10"},
+    {"section": "SMIN", "key": "BuildLimit", "value": 3, "note": "厄-2.2 雷格前哨站(机动)限造 2→3"},
+    {"section": "YAMREF", "key": "BuildLimit", "value": 3, "note": "厄-2.2 雷格前哨站(展开)限造 2→3"},
+    {"section": "UnderminerWH", "key": "AttachEffect.ArmorMultiplier", "value": 0.7, "note": "厄-2.3 马尔翁压制防御 0.6→0.7"},
+    {"section": "UnderminerWH", "key": "AttachEffect.FirepowerMultiplier", "value": 0.7, "note": "厄-2.3 马尔翁压制攻击 0.6→0.7"},
+    {"section": "UnderminerWH", "key": "CellSpread", "value": 15.6, "note": "厄-2.3 马尔翁压制范围 12→15.6"},
+    {"section": "MagnetShiftSpecial", "key": "ShowTimer", "value": "yes", "note": "厄-3.4 磁力射线显示读秒"},
+
+    {"section": "KNIGHT", "key": "Cost", "value": 350, "note": "焚-1.1 铁骑兵 450→350"},
+    {"section": "COVE", "key": "Sight", "value": 15, "note": "焚-1.2 长枪战士视野 9→15"},
+    {"section": "SpinbladeSpecial", "key": "RechargeTime", "value": 3.5, "note": "焚-1.3 加速旋塔冷却 4→3.5"},
+    {"section": "FASPIN", "key": "Strength", "value": 300, "note": "焚-1.3 加速旋塔耐久 600→300"}
+  ]
+}

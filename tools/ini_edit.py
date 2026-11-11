@@ -122,6 +122,43 @@ def set_key_in_text(text: str, section: str, key: str, value: str) -> tuple[str,
     return "".join(out), old_value
 
 
+def add_key_in_text(text: str, section: str, key: str, value: str) -> tuple[str, str]:
+    """在已存在的 [节] 末尾新增一个键。
+
+    安全约束：
+      - 节必须存在；键必须不存在（重复新增会报错）
+      - 插在节内最后一个非空行之后、下一个节之前
+      - 换行符跟随文件既有风格（CRLF / LF）
+    """
+    nl = "\r\n" if "\r\n" in text[:8000] else "\n"
+    lines = text.splitlines(keepends=True)
+
+    start = None
+    end = None
+    for i, line in enumerate(lines):
+        m = SECTION_RE.match(line.strip())
+        if not m:
+            continue
+        if start is None:
+            if m.group(1) == section:
+                start = i
+        else:
+            end = i
+            break
+    if start is None:
+        raise KeyError(f"无此节 [{section}]")
+    if end is None:
+        end = len(lines)
+
+    # 回退掉节末尾的空行，把新键插在最后一个有内容的行之后
+    insert_at = end
+    while insert_at - 1 > start and lines[insert_at - 1].strip() == "":
+        insert_at -= 1
+
+    lines.insert(insert_at, f"{key}={value}{nl}")
+    return "".join(lines), "(新增)"
+
+
 def write_atomic(path: Path, text: str, encoding: str) -> None:
     tmp = path.with_name(path.name + ".tmp")
     tmp.write_text(text, encoding=encoding, newline="")  # newline="" 保住原 CRLF
@@ -174,9 +211,12 @@ def set_many(path: Path, changes: list[dict]) -> int:
     problems: list[str] = []
     for c in changes:
         sec, key = c["section"], c["key"]
+        is_add = c.get("mode") == "add"
         if sec not in secs:
             problems.append(f"无此节 [{sec}]")
-        elif key not in secs[sec]:
+        elif is_add and key in secs[sec]:
+            problems.append(f"[{sec}] 键已存在，禁止重复新增: {key}")
+        elif not is_add and key not in secs[sec]:
             problems.append(f"[{sec}] 无此键 {key}")
     if problems:
         print("校验失败，未写入任何内容：")
@@ -187,7 +227,10 @@ def set_many(path: Path, changes: list[dict]) -> int:
     sha_before = sha1(path)
     results = []
     for c in changes:
-        text, old = set_key_in_text(text, c["section"], c["key"], str(c["value"]))
+        if c.get("mode") == "add":
+            text, old = add_key_in_text(text, c["section"], c["key"], str(c["value"]))
+        else:
+            text, old = set_key_in_text(text, c["section"], c["key"], str(c["value"]))
         results.append((c["section"], c["key"], old, str(c["value"])))
 
     write_atomic(path, text, enc)

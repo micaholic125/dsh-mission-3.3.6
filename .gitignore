@@ -20,3 +20,7 @@ __pycache__/
 Thumbs.db
 desktop.ini
 .DS_Store
+
+# 由 changes/*.json + rulesmo_original.ini 生成的产物（可复现，不入库）
+rulesmo.ini
+rulesmo_batch*.ini
