@@ -55,6 +55,32 @@ def running_game() -> list[str]:
     return [n for n in GAME_PROCS if n.lower() in low]
 
 
+def count_diffs(a: Path, b: Path) -> int | None:
+    """比对两份 INI 的 [节]+键 级差异数；无法比对返回 None。"""
+    if not (a.is_file() and b.is_file()):
+        return None
+    try:
+        from ini_edit import parse, read_text  # 同目录
+
+        sa = parse(read_text(a)[0])
+        sb = parse(read_text(b)[0])
+    except Exception:
+        return None
+    n = 0
+    for sec, kv in sb.items():
+        base_kv = sa.get(sec, {})
+        for k, v in kv.items():
+            if base_kv.get(k) != v:
+                n += 1
+        for k in base_kv:
+            if k not in kv:
+                n += 1
+    for sec in sa:
+        if sec not in sb:
+            n += 1
+    return n
+
+
 def cmd_check() -> int:
     print("=== 体检 ===")
     print(f"游戏目录: {GAME}  存在={GAME.is_dir()}")
@@ -63,11 +89,15 @@ def cmd_check() -> int:
     tgt = GAME / OVERRIDE
     if tgt.is_file():
         print(f"已有覆盖文件: 是  大小={tgt.stat().st_size:,}  sha1={sha1(tgt)[:12]}")
+        d = count_diffs(BASE, tgt)
+        print(f"当前生效改动数: {d if d is not None else '无法比对'} 项（基准 {BASE.name}）")
     else:
-        print("已有覆盖文件: 无（首次部署）")
+        print("已有覆盖文件: 无（当前为原版状态）")
     print(f"待部署文件: {WORK_OVERRIDE}  存在={WORK_OVERRIDE.is_file()}")
     if WORK_OVERRIDE.is_file():
         print(f"         大小={WORK_OVERRIDE.stat().st_size:,}  sha1={sha1(WORK_OVERRIDE)[:12]}")
+        same = tgt.is_file() and sha1(tgt) == sha1(WORK_OVERRIDE)
+        print(f"游戏目录是否已是该版本: {'是（无需重复部署）' if same else '否（可部署）'}")
     return 0
 
 

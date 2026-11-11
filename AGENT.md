@@ -32,6 +32,21 @@
 | `tools/merge_names.py` | 合并 `D:\Default Project\config\unit_names_cn*.json` 为一份总表 |
 | `tools/make_unit_catalog.py` | 生成 `单位名录.csv` |
 | `tools/check_catalog.py` | 名录自检：找出"同名不同 ID""AI 版 vs 玩家版"等歧义 |
+| `tools/build_override.py` | 从基准 + `changes/*.json` 生成 `rulesmo.ini`；前置校验 + 独立复核 + 反向检查有无清单外改动；支持多批次叠加 |
+| `tools/deploy.py` | `check` / `deploy` / `rollback` / `drill`：进程检查、强制备份（含游戏基准文件 sha1）、部署后校验、回滚演练 |
+| `tools/make_release.py` | 打包可交付 zip（`dist/MO平衡补丁_v<版本>/`），内含双击安装/还原、使用说明、改动清单、SHA256SUMS |
+| `tools/devlog.py` | 创建/追加当日开发日志 |
+
+## 二·五、本地一键操作（用户双击即可，无需命令行）
+
+| 文件 | 作用 |
+|---|---|
+| `一键体检.bat` | 只读：显示游戏是否运行、当前部署版本 sha1、当前生效改动数、是否已是最新 |
+| `一键部署.bat` | 备份 → 部署 → 校验 sha1（会写 `backup/<时间戳>_deploy/`） |
+| `一键恢复原版.bat` | 备份 → 删除覆盖文件 → 确认恢复原版（会写 `backup/<时间戳>_rollback/`） |
+
+这三个 bat 会自动探测 Python（`python` → `py` → 两个已知安装路径），并在 `cmd` 下用 UTF-8 输出中文。
+**双击前务必退出游戏**（脚本也会检查并拒绝）。
 
 ## 三、工作说明（必须遵守）
 
