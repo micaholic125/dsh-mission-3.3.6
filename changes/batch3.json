@@ -1,0 +1,9 @@
+{
+  "batch": "batch3-2026-11-11",
+  "note": "Bug 修复：巨齿鲨机甲(MEGA)被加速旋塔加速后原地打转。MEGA 是唯一使用专用 locomotor {55D141B8} + WalkRate 步态驱动机甲的单位，MO 未对其做 windspin 适配（原白名单 15 项中无任何机甲），扩大白名单后被误覆盖。恢复原状：排除 mega 装甲。",
+  "source": "用户 bug 汇报 2026-11-12",
+  "changes": [
+    {"section": "SpinGeneratorWH", "key": "Versus.mega", "value": "0%", "mode": "add",
+     "note": "排除巨齿鲨机甲 MEGA（唯一使用 mega 装甲者，未做 windspin 适配，加速会原地打转）"}
+  ]
+}
