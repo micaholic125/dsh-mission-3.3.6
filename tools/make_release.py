@@ -67,12 +67,12 @@ def load_changes() -> list[dict]:
     return items
 
 
-def gen_change_list(items: list[dict]) -> str:
+def gen_change_list(items: list[dict], version: str) -> str:
     text, _ = read_text(BASE)
     base = parse(text)
 
     lines = [
-        "# MO 3.3.6 平衡补丁 v1.0.0 — 改动清单",
+        f"# MO 3.3.6 平衡补丁 {version} — 改动清单",
         "",
         f"共 **{len(items)}** 项改动。原值取自 MO 3.3.6 原版 `rulesmo.ini`（从 `expandmo99.mix` 抽出）。",
         "",
@@ -166,7 +166,7 @@ def main() -> int:
     else:
         print("WARN: 未找到 公告-定稿.md，跳过")
 
-    (out / "改动清单.md").write_text(gen_change_list(items), encoding="utf-8-sig")
+    (out / "改动清单.md").write_text(gen_change_list(items, version), encoding="utf-8-sig")
 
     # ---- 校验清单 ----
     sums = []
