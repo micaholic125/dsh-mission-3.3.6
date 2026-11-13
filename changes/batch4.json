@@ -21,15 +21,16 @@
     {"section": "HURR", "key": "JumpjetSpeed", "value": 22,
      "note": "科-1.3 长生鸟空中哨站 移速 15→22（Jumpjet 实际生效键，必须同步）"},
 
+    {"section": "EurekaBlast", "key": "ROF", "value": 288,
+     "note": "科-2.2 优莱卡 攻击间隔 -20%（ROF 360→288；须与装填同步下调，否则装填接棒）"},
+
     {"section": "TarchiaTarget", "key": "ROF", "value": 20,
      "note": "科-2.1 多智龙火炮 瞄准时间 -20%（瞄准武器 ROF 25→20）"},
 
-    {"section": "EurekaBlast", "key": "ROF", "value": 288,
-     "note": "科-2.2 优莱卡 攻击间隔 -20%（ROF 360→288）"},
     {"section": "EUREKA", "key": "EmptyReload", "value": 284,
-     "note": "科-2.2 优莱卡 攻击间隔 -20%（空弹装填 355→284；Ammo=1，不改此项会被装填卡住）"},
+     "note": "科-2.2 优莱卡 攻击间隔 -20%（空弹装填 355→284，与 ROF 同步）"},
     {"section": "EUREKA", "key": "Reload", "value": 284,
-     "note": "科-2.2 优莱卡 攻击间隔 -20%（装填 355→284，同上）"},
+     "note": "科-2.2 优莱卡 装填 355→284（同上）"},
 
     {"section": "SHRAY", "key": "Speed", "value": 5,
      "note": "狂-1.1 沙德雷聚波坦克 速度 4→5"},

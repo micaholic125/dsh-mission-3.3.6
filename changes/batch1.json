@@ -5,7 +5,7 @@
   "changes": [
     {"section": "General", "key": "LightningStormDuration", "value": 250, "note": "盟-1 闪电风暴持续时间 210→250"},
 
-    {"section": "THOR", "key": "Cost", "value": 1500, "note": "EU-1.1 雷神炮艇 2000→1500"},
+    {"section": "THOR", "key": "Cost", "value": 1800, "note": "EU-1.1 雷神炮艇 2000→1800（实测强度过高，由 1500 回调至 1800）"},
     {"section": "ThorHTLWH", "key": "AttachEffect.ArmorMultiplier", "value": 1.9, "note": "EU-1.1 部署防御 +90%"},
     {"section": "ThorHTLWH", "key": "AttachEffect.SpeedMultiplier", "value": 0.2, "note": "EU-1.1 部署移速 -80%"},
     {"section": "SREF", "key": "Cost", "value": 1050, "note": "EU-1.2 光棱坦克 1450→1050"},
@@ -13,13 +13,13 @@
     {"section": "GASTAS", "key": "Strength", "value": 3000, "note": "EU-2.3 火控穹顶血量 1800→3000"},
     {"section": "GASTAS", "key": "BaseNormal", "value": "yes", "note": "EU-2.3 火控穹顶可延伸建筑（需实测）"},
     {"section": "DefenseBuffWH", "key": "AttachEffect.FirepowerMultiplier", "value": 2, "note": "EU-2.3 攻击加成 1.5→2"},
-    {"section": "PaladinAidSpecial", "key": "Deliver.Types", "value": "PANTHER,PANTHER,PANTHER,PANTHER,PANTHER,PANTHER", "note": "EU-2.4 圣骑士空投 2→6"},
+    {"section": "PaladinAidSpecial", "key": "Deliver.Types", "value": "PANTHER,PANTHER,PANTHER,PANTHER,PANTHER", "note": "EU-2.4 圣骑士空投 2→5（实测强度过高，由 6 回调至 5）"},
     {"section": "AWP", "key": "ROF", "value": 120, "note": "EU-2.5 狙击手常规 180→120"},
     {"section": "AWP2", "key": "ROF", "value": 90, "note": "EU-2.5 狙击手部署 150→90"},
     {"section": "AWPE", "key": "ROF", "value": 120, "note": "EU-2.5 狙击手精英常规 180→120"},
     {"section": "AWP2E", "key": "ROF", "value": 90, "note": "EU-2.5 狙击手精英部署 150→90"},
     {"section": "CRAWP", "key": "ROF", "value": 90, "note": "EU-2.5 狙击手多功能车 120→90"},
-    {"section": "CHRTNK", "key": "Cost", "value": 1450, "note": "EU-2.6 冥卫坦克 1700→1450"},
+    {"section": "CHRTNK", "key": "Cost", "value": 1550, "note": "EU-2.6 冥卫坦克 1700→1550（实测强度过高，由 1450 回调至 1550）"},
     {"section": "GAPOST", "key": "BuildLimit", "value": 5, "note": "EU-3.7 传送节点限造 3→5"},
     {"section": "ChronoliftSpecial", "key": "RechargeTime", "value": 0.1667, "note": "EU-3.8 超时空起重机 1min→10s"},
 
@@ -45,6 +45,6 @@
     {"section": "KNIGHT", "key": "Cost", "value": 350, "note": "焚-1.1 铁骑兵 450→350"},
     {"section": "COVE", "key": "Sight", "value": 15, "note": "焚-1.2 长枪战士视野 9→15"},
     {"section": "SpinbladeSpecial", "key": "RechargeTime", "value": 3, "note": "焚-1.3 加速旋塔冷却 4→3（用户 18:58 追加调整，原定 3.5）"},
-    {"section": "FASPIN", "key": "Strength", "value": 300, "note": "焚-1.3 加速旋塔耐久 600→300"}
+    {"section": "FASPIN", "key": "Strength", "value": 450, "note": "焚-1.3 加速旋塔耐久 600→450（实测回调，原定 300）"}
   ]
 }
