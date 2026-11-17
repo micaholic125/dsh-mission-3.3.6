@@ -3,8 +3,8 @@
 """打包 MO 平衡补丁为可交付版本（别人双击即用）。
 
 产出：
-  dist/MO平衡补丁_v<版本>/        目录（可直接发）
-  dist/MO平衡补丁_v<版本>.zip     压缩包（推荐发送这个）
+  dist/MO平衡补丁_v<版本>/            目录（可直接发）
+  dist/MO-Balance-Patch-v<版本>.zip   压缩包（推荐发送这个；ASCII 文件名，便于作为 GitHub Release 附件）
 
 内容：
   安装.bat / 恢复原版.bat / 使用说明.txt / 改动清单.md / 平衡公告.md
@@ -121,7 +121,9 @@ def main() -> int:
     version = sys.argv[1] if len(sys.argv) > 1 else "v1.0.0"
     name = f"MO平衡补丁_{version}"
     out = DIST / name
-    zip_path = DIST / f"{name}.zip"
+    # 发布附件的文件名用 ASCII：GitHub 会把附件名里的非 ASCII 字符归一化（中文会被替换掉），
+    # 玩家下载到的文件名会变得不可读。包内的一层目录名仍保留中文。
+    zip_path = DIST / f"MO-Balance-Patch-{version}.zip"
 
     for p in (out,):
         if p.exists():

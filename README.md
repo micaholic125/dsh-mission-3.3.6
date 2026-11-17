@@ -42,7 +42,7 @@
 
 ### 安装
 
-1. 到本仓库的 **Releases** 页面下载最新发布包（`MO平衡补丁_v1.0.1.zip`）；
+1. 到本仓库的 **Releases** 页面下载最新发布包（`MO-Balance-Patch-v1.0.1.zip`）；
 2. **完整解压**（不要只把其中一个文件拖出来）；
 3. **完全退出游戏**（包括后台的 `MentalOmegaClient.exe`）；
 4. 双击 **`安装.bat`**，看到「安装完成」即可。
@@ -157,7 +157,7 @@ python tools/deploy.py rollback   # 删除覆盖文件，恢复原版（备份�
 ### 6. 打包发布（维护者）
 
 ```bash
-python tools/make_release.py v1.0.1     # 生成 dist/MO平衡补丁_v1.0.1/ 与 zip
+python tools/make_release.py v1.0.1     # 生成 dist/MO平衡补丁_v1.0.1/ 与 ASCII 命名的 zip
 ```
 
 发布包内容：`安装.bat` / `恢复原版.bat` / `使用说明.txt` / 改动清单 / 平衡公告 / `_internal/`（补丁本体）。
