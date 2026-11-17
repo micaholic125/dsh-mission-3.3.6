@@ -1,0 +1,35 @@
+name: CI
+
+# 只做静态校验：不接触游戏、不生成 rulesmo.ini、不写入任何游戏目录。
+# 本地等价命令见 CONTRIBUTING.md「提交前自检」。
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    name: 校验（工具可编译 / 改动清单结构 / 仓库无游戏数据）
+    runs-on: ubuntu-latest
+    steps:
+      - name: 检出仓库
+        uses: actions/checkout@v4
+
+      - name: 安装 Python 3.11
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: 1/3 工具链语法检查
+        run: python -m compileall -q tools/
+
+      - name: 2/3 校验 changes/*.json 结构
+        run: python .github/scripts/check_changes.py
+
+      - name: 3/3 检查版本库不含游戏数据与作者本机路径
+        run: python .github/scripts/check_tracked.py

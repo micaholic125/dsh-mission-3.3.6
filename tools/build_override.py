@@ -12,13 +12,16 @@
   python tools/build_override.py changes/batch1.json
   python tools/build_override.py changes/batch1.json --out rulesmo.ini
   python tools/build_override.py changes/batch1.json --dry-run
+
+路径约定：仓库根由本文件位置推导（与 cwd 无关）；相对路径（清单 / --out）
+一律按**仓库根目录**解析，因此可从任意工作目录运行。
+基准文件不存在时，先用 python tools/extract_rules.py 从你自己的游戏里生成。
 """
 from __future__ import annotations
 
 import argparse
 import hashlib
 import json
-import shutil
 import sys
 from pathlib import Path
 
@@ -26,6 +29,7 @@ WORK = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(WORK / "tools"))
 
 from ini_edit import add_key_in_text, parse, read_text, set_key_in_text, write_atomic  # noqa: E402
+from mo_paths import repo_path  # noqa: E402
 
 BASE = WORK / "rulesmo_original.ini"
 
@@ -34,18 +38,33 @@ def sha1(p: Path) -> str:
     return hashlib.sha1(p.read_bytes()).hexdigest()
 
 
-def main() -> int:
-    ap = argparse.ArgumentParser()
-    ap.add_argument("changes", nargs="+", help="一个或多个变化清单 JSON，按给出顺序叠加")
-    ap.add_argument("--out", default="rulesmo.ini")
-    ap.add_argument("--dry-run", action="store_true")
-    args = ap.parse_args()
+def main(argv: list[str] | None = None) -> int:
+    ap = argparse.ArgumentParser(
+        prog="build_override.py",
+        description="从基准 rulesmo_original.ini + changes/*.json 生成外置覆盖文件 rulesmo.ini（带独立复核）。",
+        epilog=(
+            "示例：\n"
+            "  python tools/build_override.py changes/batch1.json changes/batch2.json "
+            "changes/batch3.json changes/batch4.json\n"
+            "  python tools/build_override.py changes/batch1.json --out _tmp/rulesmo.ini --dry-run\n\n"
+            "相对路径（清单 / --out）按仓库根目录解析；基准文件不存在时请先运行 "
+            "python tools/extract_rules.py。"
+        ),
+        formatter_class=argparse.RawDescriptionHelpFormatter,
+    )
+    ap.add_argument("changes", nargs="+",
+                    help="一个或多个变化清单 JSON，按给出顺序叠加（相对路径按仓库根解析）")
+    ap.add_argument("--out", metavar="文件", default="rulesmo.ini",
+                    help="输出文件（默认：仓库根 rulesmo.ini；相对路径按仓库根解析）")
+    ap.add_argument("--dry-run", action="store_true",
+                    help="只校验并打印改动明细，不写文件")
+    args = ap.parse_args(argv)
 
     changes = []
     labels = []
     seen_targets = {}
     for cfile in args.changes:
-        spec = json.loads((WORK / cfile).read_text(encoding="utf-8"))
+        spec = json.loads(repo_path(cfile).read_text(encoding="utf-8"))
         labels.append(spec.get("batch", cfile))
         for c in spec["changes"]:
             tgt = (c["section"], c["key"])
@@ -55,10 +74,11 @@ def main() -> int:
             seen_targets[tgt] = cfile
             changes.append(c)
     print(f"加载清单: {', '.join(labels)}  合计 {len(changes)} 项")
-    out_path = WORK / args.out
+    out_path = repo_path(args.out)
 
     if not BASE.is_file():
         print(f"ERROR: 基准文件不存在 {BASE}")
+        print('       请先用你自己的游戏生成：python tools/extract_rules.py --game-dir "D:/Mental Omega"')
         return 1
 
     text, enc = read_text(BASE)

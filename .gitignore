@@ -1,29 +1,46 @@
-# 心灵终结 3.3.6 平衡性脚本 — 版本库忽略规则
+# 心灵终结 3.3.6 平衡补丁 — 版本库忽略规则
+#
+# 原则：从游戏里抽取/生成的文件、以及发布成品包，一律不进仓库。
+# 详见 README「免责声明」与 LICENSE 末尾「关于游戏数据」。
 
-# 临时与中间产物
+# ── 游戏数据与生成物 ──────────────────────────────────────────────────
+# 原版基准：由 tools/extract_rules.py 从玩家自己的 expandmo99.mix 提取
+rulesmo_original.ini
+# 覆盖文件：由 rulesmo_original.ini + changes/*.json 构建，可复现
+rulesmo.ini
+rulesmo_batch*.ini
+rulesmo.ini.bak_*
+*.ini.bak_*
+# 从规则文件派生的单位名录（中文名 ↔ 节点 ID ↔ 数值）
+单位名录.csv
+单位名录_自检报告.md
+units_inventory.csv
+# 发布成品包：作为 GitHub Release 附件发布，不入库
+dist/
+
+# ── 部署备份快照（含游戏文件副本，绝不入库）────────────────────────────
+backup/
+
+# ── 临时与中间产物 ────────────────────────────────────────────────────
 _tmp/
 *.tmp
 *.bak
 *.orig
+*.rej
 
-# 部署备份快照（含游戏文件副本，不入库）
-backup/
-
-# Python
+# ── Python ────────────────────────────────────────────────────────────
 __pycache__/
 *.py[cod]
 .pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.venv/
+venv/
 
-# 编辑器/系统
+# ── 编辑器 / 系统 ─────────────────────────────────────────────────────
 .vscode/
 .idea/
+*.swp
 Thumbs.db
 desktop.ini
 .DS_Store
-
-# 由 changes/*.json + rulesmo_original.ini 生成的产物（可复现，不入库）
-rulesmo.ini
-rulesmo_batch*.ini
-
-# 发布产物：保留 zip，忽略解包后的目录
-dist/*/

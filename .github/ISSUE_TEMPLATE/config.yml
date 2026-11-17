@@ -1,0 +1,13 @@
+# Issue 模板配置
+# docs: https://docs.github.com/communities/configuring-your-repository/creating-issue-templates
+blank_issues_enabled: false
+contact_links:
+  - name: 使用说明与常见问题（安装 / 还原失败先看这里）
+    url: https://github.com/micaholic125/dsh-mission-3.3.6/blob/main/release/使用说明.txt
+    about: 补丁怎么装、怎么恢复原版、装完怎么验证生效、常见报错怎么办
+  - name: 改动清单与公告（先确认这是不是你遇到的问题）
+    url: https://github.com/micaholic125/dsh-mission-3.3.6/blob/main/公告-定稿.md
+    about: v1.0.1 全部 28 项调整的逐条说明，含每一条的原值 → 新值
+  - name: 贡献指南（想直接改 changes/*.json 的看这里）
+    url: https://github.com/micaholic125/dsh-mission-3.3.6/blob/main/CONTRIBUTING.md
+    about: 改动清单格式、硬性约定、提交前自检步骤

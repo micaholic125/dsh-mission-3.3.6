@@ -1,0 +1,104 @@
+name: 平衡调整建议
+description: 提一条单位 / 武器 / 支援技能的数值调整建议（维护者会先核对原值，再讨论数值）
+title: "[平衡建议] "
+labels: ["enhancement"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        感谢你愿意参与平衡。请尽量把「哪个单位、改什么、改成多少、为什么」写清楚——
+        建议越具体，越容易进入下一批改动。
+
+        - 一条 issue 只写**一个单位**（同一单位的多个参数可以写在一起）。
+        - 「原值」不确定可以留空，维护者会用原版规则文件核对后告诉你。
+        - 请不要在这里粘贴游戏本体文件或整段 replay。
+
+  - type: input
+    id: unit-name
+    attributes:
+      label: 单位中文名
+      description: 游戏里显示的名字。中文名可能对应多个节点 ID，有歧义时请补下一栏。
+      placeholder: 例如：天启坦克
+    validations:
+      required: true
+
+  - type: input
+    id: node-id
+    attributes:
+      label: 节点 ID
+      description: 规则文件里的节名，改数值只认这个。不确定可留空。
+      placeholder: 例如：APOC
+    validations:
+      required: false
+
+  - type: dropdown
+    id: field
+    attributes:
+      label: 改动项
+      description: 选择主要的一项；同一单位有多个参数请在「理由」里逐条列明。
+      options:
+        - 造价（Cost）
+        - 血量（Strength）
+        - 装甲（Armor）
+        - 速度（Speed）
+        - 视野（Sight）
+        - 科技等级（TechLevel）
+        - 前置建筑（Prerequisite）
+        - 限造数量（BuildLimit）
+        - 武器伤害（Damage）
+        - 武器射程（Range）
+        - 武器射速（ROF，单位：帧）
+        - 武器装填（Reload，单位：帧）
+        - 连发数（Burst）
+        - 支援技能冷却（RechargeTime）
+        - 支援技能持续时间（Duration）
+        - 其它（在理由里说明）
+    validations:
+      required: true
+
+  - type: input
+    id: old-value
+    attributes:
+      label: 原值
+      description: 不确定可留空，维护者会从原版 rulesmo.ini 逐键核对。
+      placeholder: 例如：620
+    validations:
+      required: false
+
+  - type: input
+    id: new-value
+    attributes:
+      label: 新值
+      description: 你想改成的数值。多个参数请用分号隔开。
+      placeholder: 例如：500
+    validations:
+      required: true
+
+  - type: textarea
+    id: reason
+    attributes:
+      label: 理由（实战场景）
+      description: 什么阵营、什么对局、为什么现在的数值不合理、改了会改善什么。
+      placeholder: |
+        例如：盟军 T3 攻城单位造价高但射程受限，防守时无法反制远程，
+        导致欧盟只能靠数量堆，缺少"钢铁长城"的定位。
+    validations:
+      required: true
+
+  - type: textarea
+    id: evidence
+    attributes:
+      label: 补充材料（可选）
+      description: 录像时间点、截图说明、计算过程等。请勿上传游戏本体文件。
+    validations:
+      required: false
+
+  - type: checkboxes
+    id: confirm
+    attributes:
+      label: 提交前确认
+      options:
+        - label: 这是数值平衡建议，不是新增单位 / 美术 / 音效 / 机制改动的请求。
+          required: true
+        - label: 我理解是否采纳由维护者判断，采纳后会同步更新公告与更新日志。
+          required: true

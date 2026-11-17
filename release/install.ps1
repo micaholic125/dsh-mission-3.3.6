@@ -186,7 +186,7 @@ Line
 Write-Host "  安装完成！" -ForegroundColor Green
 Write-Host ""
 Write-Host "  进游戏后可以核对（造价最直观）：" -ForegroundColor Cyan
-Write-Host "    光棱坦克 1050 / 雷神炮艇 1500 / 铁骑兵 350" -ForegroundColor White
+Write-Host "    光棱坦克 1050 / 雷神炮艇 1800 / 铁骑兵 350" -ForegroundColor White
 Write-Host "    长枪战士视野 15 / 火控穹顶可造 3 个" -ForegroundColor White
 Write-Host ""
 Write-Host "  想还原原版：双击同目录下的「恢复原版.bat」" -ForegroundColor Cyan

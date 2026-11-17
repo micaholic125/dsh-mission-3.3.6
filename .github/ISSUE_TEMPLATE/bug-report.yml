@@ -1,0 +1,94 @@
+name: Bug 报告
+description: 装了补丁后游戏异常、数值不对、安装/还原失败
+title: "[Bug] "
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        先做两件事，能省掉一半来回：
+
+        1. 看一遍 [使用说明的「常见问题」](https://github.com/micaholic125/dsh-mission-3.3.6/blob/main/release/使用说明.txt)；
+        2. **删掉游戏目录里的 `rulesmo.ini`（即恢复原版）再试一次** —— 如果原版也这样，那就不是本补丁的问题。
+
+        请注意：本补丁只改数值，永远可以靠删除 `rulesmo.ini` 完全恢复。
+
+  - type: input
+    id: patch-version
+    attributes:
+      label: 补丁版本
+      description: 安装包里的「使用说明.txt」或补丁包的版本号。
+      placeholder: 例如：v1.0.1
+    validations:
+      required: true
+
+  - type: dropdown
+    id: install-method
+    attributes:
+      label: 安装方式
+      options:
+        - 双击「安装.bat」
+        - 手动把 rulesmo.ini 复制进游戏目录
+        - 记不清 / 别人帮我装的
+    validations:
+      required: true
+
+  - type: textarea
+    id: symptom
+    attributes:
+      label: 现象
+      description: 具体发生了什么（报错原文、数值不对、闪退、卡读条……）。
+      placeholder: 例如：进遭遇战读条到一半闪退，删掉 rulesmo.ini 后正常。
+    validations:
+      required: true
+
+  - type: textarea
+    id: steps
+    attributes:
+      label: 复现步骤
+      description: 1、2、3 步写清楚；能稳定复现最好说明概率。
+      placeholder: |
+        1. 启动 MentalOmegaClient.exe
+        2. 单人游戏 → 遭遇战 → 选欧盟 / 地图 XXX
+        3. 进入对局 30 秒后闪退
+    validations:
+      required: true
+
+  - type: dropdown
+    id: vanilla
+    attributes:
+      label: 删掉 rulesmo.ini 后是否仍然出现
+      options:
+        - 未测试
+        - 原版（无补丁）不会出现，只有装补丁后才有
+        - 原版也会出现（与本补丁无关）
+    validations:
+      required: true
+
+  - type: textarea
+    id: environment
+    attributes:
+      label: 环境
+      description: Windows 版本、游戏是否 3.3.6、是否有其它 MOD / 修改器同时启用。
+      placeholder: |
+        Windows 10 22H2 / MO 3.3.6（expandmo99.mix 11,004,015 字节）/ 无其它修改器
+    validations:
+      required: true
+
+  - type: textarea
+    id: logs
+    attributes:
+      label: 日志 / 截图（可选）
+      description: 游戏目录下的日志、报错截图、安装记录「MO平衡补丁_安装记录.txt」内容。
+    validations:
+      required: false
+
+  - type: checkboxes
+    id: confirm
+    attributes:
+      label: 提交前确认
+      options:
+        - label: 我已尝试「删掉 rulesmo.ini 恢复原版」并填写了上面的对比结果。
+          required: true
+        - label: 我没有上传游戏本体文件（.mix / .exe）。
+          required: true

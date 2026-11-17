@@ -1,7 +1,7 @@
 {
   "batch": "batch4-2026-11-14",
   "note": "1.0.1 新增：欧盟超时空起重机解锁条件 + 科洛尼亚侧翼 5 项 + 狂鲨先锋 2 项。字段歧义已由用户确认（Cluster / TarchiaTarget.ROF / SHRAY.ROT）。",
-  "source": "C:\\Users\\12599\\Desktop\\平衡公告.md（用户提交）",
+  "source": "用户提交的平衡公告（原文存档：docs/09-用户原始需求-v1.0.1.md）",
   "changes": [
     {"section": "ChronoliftSpecial", "key": "SW.AuxBuildings", "value": "GACLAB",
      "note": "EU-3.9 超时空起重机解锁条件：超时空传送仪(GACSPH) → 实验型传送平台(GACLAB)"},

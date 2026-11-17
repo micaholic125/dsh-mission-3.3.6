@@ -1,0 +1,50 @@
+# 换行符策略 —— 规则文件必须保持 CRLF，否则游戏/工具读取会异常
+#
+# 约定：仓库内存 LF（由 git 归一化），检出到 Windows 工作区时按各类型还原。
+# 若关闭 eol 转换（core.autocrlf=false），本文件仍会按下面的 eol 规则检出。
+
+# 默认：文本文件自动识别，统一 LF 入库
+* text=auto eol=lf
+
+# ── 必须是 CRLF 的文件 ────────────────────────────────────────────────
+# 规则文件：MO 原版 rulesmo.ini 为 CRLF；用 LF 提交会破坏哈希与逐键比对
+*.ini       text eol=crlf
+# Windows 批处理：LF 换行会导致 cmd 解析异常（尤其是标签与 goto）
+*.bat       text eol=crlf
+*.cmd       text eol=crlf
+# PowerShell 脚本
+*.ps1       text eol=crlf
+*.psm1      text eol=crlf
+# 面向玩家的纯文本说明（记事本友好）
+*.txt       text eol=crlf
+
+# ── 明确使用 LF 的文件 ────────────────────────────────────────────────
+*.py        text eol=lf
+*.md        text eol=lf
+*.json      text eol=lf
+*.yml       text eol=lf
+*.yaml      text eol=lf
+*.toml      text eol=lf
+*.csv       text eol=lf
+*.sh        text eol=lf
+.gitignore     text eol=lf
+.gitattributes text eol=lf
+LICENSE        text eol=lf
+Makefile       text eol=lf
+
+# ── 二进制：不做任何文本转换 ──────────────────────────────────────────
+*.zip       binary
+*.7z        binary
+*.rar       binary
+*.mix       binary
+*.exe       binary
+*.dll       binary
+*.pdb       binary
+*.png       binary
+*.jpg       binary
+*.ico       binary
+*.mp3       binary
+*.wav       binary
+*.shp       binary
+*.vxl       binary
+*.pcx       binary
