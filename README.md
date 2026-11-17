@@ -179,7 +179,8 @@ python tools/make_release.py v1.0.1     # 生成 dist/MO平衡补丁_v1.0.1/ 与
 ├─ AGENT.md              # 维护与协作说明（多 agent 并行改文件时的约定）
 ├─ CONTRIBUTING.md       # 贡献指南：提建议、提 PR、提交前自检
 ├─ CHANGELOG.md          # 版本历史
-├─ LICENSE               # MIT（游戏数据不在许可范围，见文末）
+├─ LICENSE               # MIT
+├─ NOTICE.md             # 游戏数据版权与「非官方」声明
 └─ .github/              # CI（语法/清单结构/无游戏数据）与 issue 模板
 ```
 
@@ -222,6 +223,7 @@ python tools/make_release.py v1.0.1     # 生成 dist/MO平衡补丁_v1.0.1/ 与
 - **代码与文档**（`tools/`、`docs/`、`.github/`、`changes/` 等）：[MIT License](LICENSE)，© 2026 micaholic125
 - **游戏数据与规则文件**（`rulesmo.ini`、`expandmo99.mix` 及其提取/衍生内容）：
   版权归 **Mental Omega 团队**所有，**不在 MIT 许可范围内**，本仓库也不分发它们。
+  详见 [NOTICE.md](NOTICE.md)
 
 ## 八、致谢
 

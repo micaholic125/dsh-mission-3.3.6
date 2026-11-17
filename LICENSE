@@ -19,19 +19,3 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
-
---------------------------------------------------------------------------------
-关于游戏数据（不在本许可范围内 / Not covered by this license）
-
-本许可仅覆盖本仓库内的源代码、脚本与文档。
-
-《心灵终结》（Mental Omega）及其游戏数据、规则文件（包括但不限于
-`rulesmo.ini`、`expandmo99.mix` 以及由此提取或衍生的任何内容）、美术、
-音效、文本与商标，版权归 Mental Omega 团队及其权利人所有，不适用 MIT 许可。
-本仓库不包含任何游戏数据文件；玩家需自备正版 Mental Omega 3.3.6，
-并使用 `tools/extract_rules.py` 从自己的游戏安装中提取基准规则文件。
-
-Mental Omega and its game data (including but not limited to rules files,
-MIX archives, artwork, audio and text) are copyright their respective owners
-and are NOT licensed under the MIT License. This repository ships no game
-data; users must supply their own copy of Mental Omega 3.3.6.
